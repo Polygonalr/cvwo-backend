@@ -1,6 +1,22 @@
-# README
+# CVWO backend
 
-This README would normally document whatever steps are necessary to get the
+Task Management System API server in Ruby on Rails
+
+## Requirements
+
+* Ruby 2.7.0
+
+* Rails 6.1.4.1
+
+* This is developed with postgres as the database backend, therefore postgres is recommended too.
+
+## Dev server
+
+* Configure database.yml
+
+* `rails server -p 3001`
+
+<!-- This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
@@ -21,4 +37,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* ... -->
