@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  resources :tag_tasks
-  resources :tags
-  resources :tasks
   resources :users
   post 'api/login', to: 'authentication#login'
   get 'api/user_data', to: 'authentication#get_user_data'

@@ -35,9 +35,10 @@ ActiveRecord::Schema.define(version: 2022_01_19_123607) do
     t.string "title"
     t.text "description"
     t.integer "status"
-    t.integer "owner_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,4 +53,5 @@ ActiveRecord::Schema.define(version: 2022_01_19_123607) do
 
   add_foreign_key "tag_tasks", "tags"
   add_foreign_key "tag_tasks", "tasks"
+  add_foreign_key "tasks", "users"
 end
