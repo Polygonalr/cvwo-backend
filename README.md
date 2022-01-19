@@ -14,6 +14,8 @@ Task Management System API server in Ruby on Rails
 
 * Configure database.yml
 
+* `rails db:migrate`
+
 * `rails server -p 3001`
 
 <!-- This README would normally document whatever steps are necessary to get the
