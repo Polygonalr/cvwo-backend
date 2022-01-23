@@ -12,7 +12,7 @@ class TasksApiController < ApplicationController
     end
 
     def add_task
-        task_params = params.require(:task).permit(:title, :description)
+        task_params = params.require(:task).permit(:title, :description, :tag_ids => [])
         task = Task.new(task_params)
         task.user_id = @user.id
         task.status = 0
