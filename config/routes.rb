@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post 'api/assign_tag', to: 'tasks_api#assign_tag'
   post 'api/unassign_tag', to: 'tasks_api#unassign_tag'
 
+  post 'api/add_user', to: 'users#create'
+
   get 'api/get_colors', to: 'tasks_api#get_colors'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -11,6 +11,7 @@ class AuthenticationController < ApplicationController
                 render json:
                 {
                     user: {
+                        id: @user.id,
                         username: @user.username,
                         name: @user.name,
                         role: @user.role
@@ -27,6 +28,7 @@ class AuthenticationController < ApplicationController
 
     def get_user_data
         render json: {
+            id: @user.id,
             username: @user.username,
             name: @user.name,
             role: @user.role
