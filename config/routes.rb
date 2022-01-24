@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'api/get_tasks', to: 'tasks_api#get_tasks'
   post 'api/add_task', to: 'tasks_api#add_task'
   post 'api/update_task', to: 'tasks_api#update_task'
+  post 'api/delete_task', to: 'tasks_api#delete_task'
 
   get 'api/get_tags', to: 'tasks_api#get_tags'
   post 'api/add_tag', to: 'tasks_api#add_tag'

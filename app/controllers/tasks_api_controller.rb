@@ -42,6 +42,17 @@ class TasksApiController < ApplicationController
         end
     end
 
+    def delete_task
+        task_params = params.require(:task).permit(:id)
+        task = Task.find(task_params[:id])
+        if @user.role == 1
+            task.destroy
+            render json: { message: 'Task deleted' }
+        else
+            render json: { error: 'Unauthorized' }, status: :unauthorized
+        end
+    end
+
     def get_tags
         tags = Tag.all
         render json: tags
