@@ -12,11 +12,23 @@ Task Management System API server in Ruby on Rails
 
 ## Dev server
 
-* Configure database.yml
+Installation is assumed to be done on a fresh copy of Ubuntu with PostgreSQL.
 
-* `rails db:migrate`
+* `sudo apt-get install postgresql build-essential bison openssl curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libxml2-dev autoconf libc6-dev ncurses-dev automake libtool libpq-dev`
+
+* `bundle install`
+
+* Configure PostgreSQL, `config/database.yml` (example given in the config directory) and `db/seeds.rb` (for the credentials of the default admin user account). You may need to regenerate the master key and credentials to be used with the server.
+
+* `rails db:create db:migrate db:seed`
 
 * `rails server -p 3001`
+
+## To do
+
+* Write unit tests. I was short on time and did not learn how to write unit tests for Rails.
+
+* Docker deployment.
 
 <!-- This README would normally document whatever steps are necessary to get the
 application up and running.
