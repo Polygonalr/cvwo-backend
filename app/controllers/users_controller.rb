@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-  skip_before_action :require_jwt
+  before_action :check_admin, only: [:create, :update, :destroy, :new, :edit]
 
   # GET /users or /users.json
   def index
@@ -64,5 +64,11 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:username, :name, :password, :password_confirmation, :role)
+    end
+
+    def check_admin
+      if @user.role != 1
+        render json: { error: 'Unauthorized' }, status: :unauthorized
+      end
     end
 end
