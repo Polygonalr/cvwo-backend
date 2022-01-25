@@ -16,11 +16,11 @@ class ApplicationController < ActionController::Base
     end
 
     def secret
-        secret = ENV['SECRET_KEY_BASE'] || Rails.application.secrets.secret_key_base
+        secret =  ENV['SECRET_KEY_BASE'] || Rails.application.secret_key_base
     end
 
     def create_token(payload)
-        JWT.encode(payload, secret)
+        JWT.encode payload, secret, 'HS256'
     end
 
     private
@@ -29,10 +29,9 @@ class ApplicationController < ActionController::Base
             return false
         end
 
-        puts "token: #{token}"
         token.gsub!('Bearer ', '')
         begin
-            @decoded_token = JWT.decode token, secret, true
+            @decoded_token = JWT.decode token, secret, true, { algorithm: 'HS256' }
             user_id = @decoded_token[0]["user_id"]
             if user_id
                 @user = User.find_by(id: @decoded_token[0]["user_id"])
@@ -41,7 +40,7 @@ class ApplicationController < ActionController::Base
                 end
             end
             return false
-        rescue JWT::DecodeError
+        rescue JWT::DecodeError => e
             Rails.logger.warn "Error decoding JWT: " + e.to_s
         end
         false
