@@ -18,7 +18,7 @@ Installation is assumed to be done on a fresh copy of Ubuntu with PostgreSQL.
 
 * `bundle install`
 
-* Configure PostgreSQL, `config/database.yml` (example given in the config directory) and `db/seeds.rb` (for the credentials of the default admin user account). You may need to regenerate the master key and credentials to be used with the server.
+* Configure PostgreSQL, `config/database.yml` (example given in the config directory), `db/seeds.rb` (for the credentials of the default admin user account) and `config/initializers/cors.rb`. You may need to regenerate the master key and credentials to be used with the server.
 
 * `rails db:create db:migrate db:seed`
 
@@ -29,6 +29,10 @@ Installation is assumed to be done on a fresh copy of Ubuntu with PostgreSQL.
 * Write unit tests. I was short on time and did not learn how to write unit tests for Rails.
 
 * Docker deployment.
+
+* Implement Redis for caching.
+
+* Use .ENV for configurations instead.
 
 <!-- This README would normally document whatever steps are necessary to get the
 application up and running.
