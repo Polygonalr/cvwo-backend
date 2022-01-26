@@ -1,58 +1,57 @@
-# CVWO backend
+<h1 align="center">
+  Task Management System (CVWO)
+</h1>
 
-Task Management System API server in Ruby on Rails
+<img src="https://i.imgur.com/4Qbw8AA.png"/>
+
+<h3 align="center"><i>Task Management System API server in Ruby on Rails (not my best!)</i></h3>
+
+<p align="center"><a href="https://cvwo.ayzh.website">Click here to view the demo!</a></p>
+
+
 
 ## Requirements
 
 * Ruby 2.7.0
 
-* Rails 6.1.4.1
+* Rails 6.1.4.x
 
-* This is developed with postgres as the database backend, therefore postgres is recommended too.
+* This is developed with PostgreSQL as the database backend, therefore PostgresSQL is recommended. The instructions below assumes that you will be using PostgreSQL.
 
-## Dev server
+## Setting up the development server
 
 Installation is assumed to be done on a fresh copy of Ubuntu with PostgreSQL.
 
-* `sudo apt-get install postgresql build-essential bison openssl curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libxml2-dev autoconf libc6-dev ncurses-dev automake libtool libpq-dev`
+First, install the dependencies.
 
-* `bundle install`
+```bash
+sudo apt-get install postgresql build-essential bison openssl curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libxml2-dev autoconf libc6-dev ncurses-dev automake libtool libpq-dev
+```
 
-* Configure PostgreSQL, `config/database.yml` (example given in the config directory), `db/seeds.rb` (for the credentials of the default admin user account) and `config/initializers/cors.rb`. You may need to regenerate the master key and credentials to be used with the server.
+Then, install the Gem depencencies.
 
-* `rails db:create db:migrate db:seed`
+```bash
+bundle install
+```
 
-* `rails server -p 3001`
+Configure PostgreSQL, `config/database.yml` (example given in the config directory), `db/seeds.rb` (for the credentials of the default admin user account) and `config/initializers/cors.rb`. You may need to regenerate the master key and credentials to be used with the server. Afterwards, initialise the database.
 
-## To do
+```bash
+rails db:create db:migrate db:seed
+```
 
-* Write unit tests. I was short on time and did not learn how to write unit tests for Rails.
+Finally, run the server for development.
 
-* Docker deployment.
+```bash
+rails server -p 3001
+```
 
-* Implement Redis for caching.
+## Areas for improvement
 
-* Use .ENV for configurations instead.
+1) Write unit tests. I was short on time and did not learn how to write unit tests for Rails.
 
-<!-- This README would normally document whatever steps are necessary to get the
-application up and running.
+2) Docker deployment.
 
-Things you may want to cover:
+3) Implement `Redis` for caching.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ... -->
+4) Use `.ENV` for configurations instead.
