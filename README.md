@@ -6,9 +6,6 @@
 
 <h3 align="center"><i>Task Management System API server in Ruby on Rails (not my best!)</i></h3>
 
-<p align="center"><a href="https://cvwo.ayzh.website">Click here to view the demo!</a></p>
-
-
 
 ## Requirements
 
